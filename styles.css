@@ -113,6 +113,7 @@ body{
 
 .emojiRadio{
     position: relative;
+    /* font-family: "Apple Color Emoji"; */
 }
 
 .emojiRadio::before{

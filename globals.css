@@ -27,8 +27,3 @@
 html{
     background-color: black;
 }
-
-@font-face {
-    font-family: ACM;
-    src: url(Apple\ Color\ Emoji.ttc);
-}

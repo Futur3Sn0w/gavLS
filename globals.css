@@ -17,6 +17,8 @@
     --green: rgb(63, 190, 63);
     --blue: rgb(70, 70, 253);
     --purple: rgb(165, 69, 149);
+
+    --textClr: black;
 }
 
 *{

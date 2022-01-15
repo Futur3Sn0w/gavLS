@@ -101,7 +101,6 @@ function showTime() {
     let currentDate = mm + "/" + dd;
   
     document.getElementById("time").innerHTML = currentTime;
-    // document.getElementById("date").innerHTML = currentDate;
 }
 showTime();
 
@@ -120,21 +119,18 @@ document.getElementById('date').innerHTML = todayDate;
 function weatherBalloon( cityID ) {
 	var key = '984b3d6c3b801e60a2eaf094da08b866';
 	fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
-	.then(function(resp) { return resp.json() }) // Convert data to json
+	.then(function(resp) { return resp.json() })
 	.then(function(data) {
-		drawWeather(data); // Call drawWeather
+		drawWeather(data);
 	})
-	.catch(function() {
-		// catch any errors
-	});
 }
 
 function drawWeather( d ) {
 	var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
 	
 	document.getElementById('weather').innerHTML = fahrenheit + '&deg | ' + d.weather[0].description;
-	// document.getElementById('temp').innerHTML = fahrenheit + '&deg;';
-	// document.getElementById('location').innerHTML = d.name;
 }
 
-weatherBalloon( 4791259 );
+setInterval(function(){ 
+    weatherBalloon( 4791259 );
+}, 5000);

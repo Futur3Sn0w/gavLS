@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStatus</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="globals.css">
+    <script src="https://kit.fontawesome.com/a1fc6f0f3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- <div class="testBtn" id="testBtn"><i class="fas fa-cog"></i></div> -->
+
+    <div class="container" id="container">
+        <!-- <div class="hello">hello!</div> -->
+        <div class="overview" id="swiper">
+            <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">
+                😴
+            </div>
+            <div id="mainTitle" class="ovText changable" data-settingsName="ovTextSettings" onclick="showSettings(this)">
+                Loading...
+            </div>
+        </div>
+        <div id="mainStatus" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">
+            This page loads slowly for some reason...
+        </div>
+        <div class="previous" style="display: none;">
+            <div class="statBox sb1">ac</div>
+            <div class="statBox sb2">music</div>
+            <div class="statBox sb3">?</div>
+        </div>
+    </div>
+
+    <div class="settingsPanel" id="settingsPanel">
+        <div class="finishBtn" onclick="finishBtn(this)">Done</div>
+        <div class="settingsContent ovEmojiSettings">
+            <div class="emOpts">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😴" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😁" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="🙂" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😐" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="🤩" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😍" id="emojiRadio" class="emojiRadio">
+        </div>
+        </div>
+        <div class="settingsContent ovTextSettings">
+            Overview text (3 or less words):
+            <input type="text" id="overviewCTB">
+        </div>
+        <div class="settingsContent statusSettings">
+            Statusbox text:
+            <textarea id="statusCTB" rows="2"></textarea>
+        </div>
+        <div class="settingsContent colorSettings">
+            <div class="colOpts">
+            <input onchange="globalColor(this)" type="radio" data-colorName="red" data-color="🟥" name="color" id="colorRadio">
+            <input onchange="globalColor(this)" type="radio" data-colorName="orange" data-color="🟧" name="color" id="colorRadio">
+            <input onchange="globalColor(this)" type="radio" data-colorName="yellow" data-color="🟨" name="color" id="colorRadio">
+            <input onchange="globalColor(this)" type="radio" data-colorName="green" data-color="🟩" name="color" id="colorRadio">
+            <input onchange="globalColor(this)" type="radio" data-colorName="blue" data-color="🟦" name="color" id="colorRadio">
+            <input onchange="globalColor(this)" type="radio" data-colorName="purple" data-color="🟪" name="color" id="colorRadio">
+        </div>
+        </div>
+    </div>
+    <div class="spBack" id="spBack"></div>
+
+    <script src="script.js"></script>
+
+    <style>
+        .testBtn{
+        width: 50px;
+        height: 50px;
+
+        background-color: black;
+        color: white;
+        font-size: 30px;
+
+        position: absolute;
+        z-index: 100;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        padding: 0 10px;
+
+        border-radius: 25px 25px 0 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+    </style>
+</body>
+</html>

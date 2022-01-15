@@ -1,0 +1,280 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: var(--pageBack);
+    transform-origin: bottom;
+    transition: transform .3s, opacity .2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: var(--purple);
+    transform-origin: bottom;
+    transition: transform .3s, opacity .2s, filter .2s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* Settings */
+
+.settingsPanel{
+    width: 500px;
+    height: fit-content;
+
+    background-color: white;
+    border-radius: 20px;
+
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    z-index: 1000;
+}
+
+.spBack{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    /* background-color: black; */
+}
+
+.settingsContent{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingsContent:not(:last-of-type){
+    border-bottom: 3px solid rgba(0, 0, 0, 0.308);
+}
+
+.finishBtn{
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    bottom: -50px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 7px;
+
+    cursor: pointer;
+    transition: opacity .2s, transform .2s;
+}
+
+.finishBtn:hover{
+    opacity: .7;
+    transform: scale(1.05);
+}
+
+    /* SBTextbox */
+    #statusCTB{
+        width: 250px;
+    }
+    /*  */
+
+/*  */
+
+/* Emoji Settings Page */
+
+.emOpts{
+    display: flex;
+    gap: 40px;
+    padding-top: 55px;
+}
+
+.emojiRadio{
+    position: relative;
+}
+
+.emojiRadio::before{
+    content: attr(data-emName);
+    
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-49%);
+
+    font-size: 50px;
+}
+
+/*  */
+
+/* Color Settings Page */
+
+.colOpts{
+    display: flex;
+    gap: 40px;
+    padding-top: 55px;
+}
+
+#colorRadio{
+    position: relative;
+}
+
+#colorRadio::before{
+    content: attr(data-color);
+    
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-49%);
+
+    font-size: 50px;
+}
+
+/*  */
+
+/* Overview Section */
+
+.overview{
+    width: calc(100% - 10px);
+    height: 186px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(90deg, purple, transparent);
+
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+    border-radius: 93px 0 0 93px;
+}
+
+.ovEmoji{
+    font-family: ACM;
+    font-size: 250px;
+    height: fit-content;
+
+    position: absolute;
+    z-index: 1;
+    top: -65px;
+    left: -55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform-origin: top right;
+}
+
+.ovEmoji::before{
+    content: '';
+
+    width: 100px;
+    height: 150px;
+
+    background-color: transparent;
+
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+
+.ovText{
+    padding: 15px;
+    font-size: 100px;
+    font-weight: bolder;
+    width: 100%;
+
+    text-align: right;
+
+    color: white;
+}
+
+/*  */
+
+/* Status Box */
+
+.status{
+    width: 90%;
+    height: fit-content;
+
+    font-size: 50px;
+    padding: 50px 30px 20px 30px;
+
+    margin: auto auto;
+
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: white;
+}
+
+.status::before{
+    content: "Status:";
+    position: absolute;
+    transform: translateY(-35px);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/*  */
+
+/* Statics */
+
+.changable{
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.changable:hover{
+    transform: scale(1.1);
+}
+
+.unfocused{
+    transform: scale(0.95);
+    opacity: .6;
+    border-radius: 15px 15px 0 0;
+    filter: blur(5px);
+}
+
+/*  */
+
+/* Hidden */
+
+.hello{
+    position: absolute;
+    z-index: 0;
+    bottom: -100px;
+    right: -50px;
+
+    user-select: none;
+    pointer-events: none;
+    opacity: .1;
+
+    font-size: 55vh;
+    font-weight: bolder;
+}
+
+/*  */

@@ -1,3 +1,5 @@
+// Variables
+
 let tb = document.getElementById('testBtn');
 
 let cont = document.getElementById('container');
@@ -10,12 +12,17 @@ let mainEmoji = document.getElementById('mainEmoji');
 let mainTitle = document.getElementById('mainTitle');
 let mainStatus = document.getElementById('mainStatus');
 
+let contentA = document.getElementById('contentA');
+let contentB = document.getElementById('contentB');
+
 let overviewTB = document.getElementById('overviewCTB');
 let statusTB = document.getElementById('statusCTB');
 
 let emojiPicker = document.getElementById('emojiRadio');
 
 let body = document.body;
+
+// Settings window
 
 function showSettings(obj) {
     if (cont.classList.contains('unfocused')){
@@ -37,10 +44,14 @@ function emojiPickerFn(obj) {
     localStorage.setItem('emojiLS', obj.getAttribute('data-emName'));
 }
 
+// Hide the settings window and set the settings in localStorage to retain
+// them upon revisiting the site
+
 function finishBtn(obj) {
     mainEmoji.innerHTML = localStorage.getItem('emojiLS');
     mainTitle.innerHTML = overviewTB.value;
-    mainStatus.innerHTML = statusTB.value;
+    contentA.innerHTML = statusTB.value;
+
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
     swiper.style.background = "linear-gradient(90deg, transparent, " + localStorage.getItem('colorSwiperLS') + ")";
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
@@ -73,16 +84,27 @@ function finishBtn(obj) {
     showTime2();
 
     showSettings();
+    checkChecks();
 }
+
+// Page load function
 
 window.onload = function () {
     mainEmoji.innerHTML = localStorage.getItem('emojiLS');
     mainTitle.innerHTML = localStorage.getItem('titleLS');
-    mainStatus.innerHTML = localStorage.getItem('statusLS');
+    contentA.innerHTML = localStorage.getItem('statusLS');
+
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
     swiper.style.background = "linear-gradient(90deg, transparent, " + localStorage.getItem('colorSwiperLS') + ")";
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
+
+    overviewTB.value = localStorage.getItem('titleLS');
+    statusTB.value = localStorage.getItem('statusLS');
+
+    setChecks();
 }
+
+// Backend for colour setting(s)
 
 function globalColor(obj2) {
     localStorage.setItem("colorMainLS", "var(--" + obj2.getAttribute('data-colorName') + ")")
@@ -98,6 +120,8 @@ function globalColor(obj2) {
         localStorage.setItem("textColor", "white");
     }
 }
+
+// Time & Date
 
 setInterval(showTime, 1000);
 function showTime() {
@@ -134,6 +158,8 @@ var objToday = new Date(),
 var todayDate = dayOfWeek + ", " + curMonth + " " + dayOfMonth;
 
 document.getElementById('date').innerHTML = todayDate;
+
+// Weather
 
 function weatherBalloon( cityID ) {
 	var key = '984b3d6c3b801e60a2eaf094da08b866';

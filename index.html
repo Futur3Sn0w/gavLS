@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="globals.css">
     <script src="https://kit.fontawesome.com/a1fc6f0f3a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+    <div class="contentA" id="contentA" style="display: none;">Loading...</div>
+    <div class="contentB" id="contentB" style="display: none;">
+        <ul class="toDoList" data-showMessage="">
+            <li style="display: none;" id="tdl1"></li>
+            <li style="display: none;" id="tdl2"></li>
+            <li style="display: none;" id="tdl3"></li>
+            <li style="display: none;" id="tdl4"></li>
+        </ul>
+    </div>
 
     <div class="container" id="container">
         <!-- <div class="hello">hello!</div> -->
@@ -17,7 +28,8 @@
             <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">😴</div>
             <div id="mainTitle" class="ovText changable" data-settingsName="ovTextSettings" onclick="showSettings(this)"></div>
         </div>
-        <div id="mainStatus" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">Information loading (blame the weather)...</div>
+        <div id="mainStatus" data-statOrTD="Status:" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">
+        </div>
         <div class="infoPen">
             <div class="timeDate">
                 <div class="time" id="time"></div>
@@ -51,17 +63,42 @@
         </div>
         <div class="settingsContent colorSettings">
             <div class="colOpts">
-            <input onchange="globalColor(this)" type="radio" data-colorName="red" data-color="🟥" name="color" id="colorRadio">
-            <input onchange="globalColor(this)" type="radio" data-colorName="orange" data-color="🟧" name="color" id="colorRadio">
-            <input onchange="globalColor(this)" type="radio" data-colorName="yellow" data-color="🟨" name="color" id="colorRadio">
-            <input onchange="globalColor(this)" type="radio" data-colorName="green" data-color="🟩" name="color" id="colorRadio">
-            <input onchange="globalColor(this)" type="radio" data-colorName="blue" data-color="🟦" name="color" id="colorRadio">
-            <input onchange="globalColor(this)" type="radio" data-colorName="purple" data-color="🟪" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="red" data-color="🟥" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="orange" data-color="🟧" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="yellow" data-color="🟨" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="green" data-color="🟩" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="blue" data-color="🟦" name="color" id="colorRadio">
+                <input onchange="globalColor(this)" type="radio" data-colorName="purple" data-color="🟪" name="color" id="colorRadio">
+            </div>
         </div>
+        <div class="settingsContent tdlSettings">
+            <ul class="tdlItems">
+                <li>
+                    <input type="checkbox" name="toDoItem" id="tdlCB1">
+                    <input type="text" name="toDoItem" id="tdlTB1">
+                </li>
+                
+                <li>
+                    <input type="checkbox" name="toDoItem" id="tdlCB2">
+                    <input type="text" name="toDoItem" id="tdlTB2">
+                </li>
+
+                <li>
+                    <input type="checkbox" name="toDoItem" id="tdlCB3">
+                    <input type="text" name="toDoItem" id="tdlTB3">
+                </li>
+
+                <li>
+                    <input type="checkbox" name="toDoItem" id="tdlCB4">
+                    <input type="text" name="toDoItem" id="tdlTB4">
+                </li>
+            </ul>
         </div>
     </div>
     <div class="spBack" id="spBack"></div>
 
     <script src="script.js"></script>
+    <script src="jquery.js"></script>
+    <script src="todolist.js"></script>
 </body>
 </html>

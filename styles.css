@@ -101,6 +101,14 @@ body{
     }
     /*  */
 
+.tdlItems{
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    list-style: none;
+}
+
+
 /*  */
 
 /* Emoji Settings Page */
@@ -253,11 +261,45 @@ body{
 }
 
 .status::before{
-    content: "Status:";
+    content: attr(data-statOrTD);
     position: absolute;
     transform: translateY(-35px);
     font-weight: bold;
     font-size: 25px;
+}
+
+.toDoList{
+    margin: 0 auto;
+    font-size: 3vw;
+    list-style: none;
+}
+
+.toDoList::before{
+    content: attr(data-showMessage);
+}
+
+.toDoList li{
+    position: relative;
+    transform: translateX(-15px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.toDoList li::before{
+    content: "";
+    transform: translateX(-25px);
+
+    width: 15px;
+    height: 5px;
+
+    background-color: var(--textClr);
+    border-radius: 500px;
+
+    position: absolute;
+    left: 0;
+    z-index: -1;
 }
 
 /*  */

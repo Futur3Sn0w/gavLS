@@ -48,6 +48,30 @@ function finishBtn(obj) {
     localStorage.setItem('titleLS', overviewTB.value);
     localStorage.setItem('statusLS', statusTB.value);
 
+    function showTime2() {
+        let time2 = new Date();
+        let hour2 = time2.getHours();
+        let min2 = time2.getMinutes();
+        am_pm2 = "AM";
+      
+        if (hour2 > 12) {
+            hour2 -= 12;
+            am_pm2 = " PM";
+        }
+        if (hour2 == 0) {
+            hr2 = 12;
+            am_pm2 = " AM";
+        }
+      
+        hour2 = hour2 < 10 ? "0" + hour2 : hour2;
+        min2 = min2 < 10 ? "0" + min2 : min2;
+      
+        let currentTime2 = hour2 + ":" + min2 + am_pm2;
+      
+        mainTitle.setAttribute("data-lastUpdate", "Last updated: " + currentTime2);
+    }
+    showTime2();
+
     showSettings();
 }
 
@@ -81,9 +105,6 @@ function showTime() {
     let hour = time.getHours();
     let min = time.getMinutes();
     am_pm = "AM";
-
-    var dd = String(time.getDate()).padStart(2, '0');
-    var mm = String(time.getMonth() + 1).padStart(2, '0');
   
     if (hour > 12) {
         hour -= 12;
@@ -98,7 +119,6 @@ function showTime() {
     min = min < 10 ? "0" + min : min;
   
     let currentTime = hour + ":" + min + am_pm;
-    let currentDate = mm + "/" + dd;
   
     document.getElementById("time").innerHTML = currentTime;
 }
@@ -110,8 +130,7 @@ var objToday = new Date(),
 	domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
 	dayOfMonth = todayDate + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
 	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
-	curMonth = months[objToday.getMonth()],
-	curYear = objToday.getFullYear();
+	curMonth = months[objToday.getMonth()];
 var todayDate = dayOfWeek + ", " + curMonth + " " + dayOfMonth;
 
 document.getElementById('date').innerHTML = todayDate;

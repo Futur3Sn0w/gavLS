@@ -15,15 +15,15 @@
         <!-- <div class="hello">hello!</div> -->
         <div class="overview" id="swiper">
             <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">😴</div>
-            <div id="mainTitle" class="ovText changable" data-settingsName="ovTextSettings" onclick="showSettings(this)">Loading...</div>
+            <div id="mainTitle" class="ovText changable" data-settingsName="ovTextSettings" onclick="showSettings(this)"></div>
         </div>
-        <div id="mainStatus" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">This page loads slowly for some reason...</div>
+        <div id="mainStatus" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">Information loading (blame the weather)...</div>
         <div class="infoPen">
             <div class="timeDate">
-                <div class="time" id="time">Time loading...</div>
-                <div class="date" id="date">Date loading...</div>
+                <div class="time" id="time"></div>
+                <div class="date" id="date"></div>
             </div>
-            <div class="weather" id="weather">Weather loading...</div>
+            <div class="weather" id="weather"></div>
         </div>
     </div>
 
@@ -37,6 +37,8 @@
             <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😐" id="emojiRadio" class="emojiRadio">
             <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="🤩" id="emojiRadio" class="emojiRadio">
             <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😍" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="🎙️" id="emojiRadio" class="emojiRadio">
+            <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="🍽️" id="emojiRadio" class="emojiRadio">
         </div>
         </div>
         <div class="settingsContent ovTextSettings">

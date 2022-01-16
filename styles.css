@@ -216,6 +216,20 @@ body{
     user-select: none;
 }
 
+.ovText::after{
+    content: attr(data-lastUpdate);
+
+    font-size: 40px;
+    opacity: .7;
+
+    position: absolute;
+    bottom: -10px;
+    left: 15px;
+
+    pointer-events: none;
+    user-select: none;
+}
+
 /*  */
 
 /* Status Box */
@@ -269,15 +283,18 @@ body{
 
     background: linear-gradient(transparent, rgba(255, 255, 255, 0.4));
     color: var(--textClr);
+    filter: invert(100%);
 }
 
 .time{
     font-size: 70px;
     font-weight: bold;
+    filter: invert(100%);
 }
 
 .date{
     font-size: 55px;
+    filter: invert(100%);
 }
 
 .weather{
@@ -285,6 +302,7 @@ body{
     font-weight: bold;
 
     text-align: right;
+    filter: invert(100%);
 }
 
 /*  */

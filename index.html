@@ -48,11 +48,14 @@
 
     <div class="container" id="container">
         <!-- <div class="hello">hello!</div> -->
+        <div class="ovCorner" id="ovCornerBack">
+            <div class="ovCornerFore" id="ovCornerFore"></div>
+        </div>
         <div class="overview" id="swiper">
             <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">😴</div>
-            <div id="mainTitle" class="ovText changable" data-settingsName="ovTextSettings" onclick="showSettings(this)"></div>
+            <div id="mainTitle" class="ovText" data-settingsName="ovTextSettings"></div>
         </div>
-        <div id="mainStatus" data-statOrTD="Status:" class="status changable" data-settingsName="statusSettings" onclick="showSettings(this)">
+        <div id="mainStatus" data-statOrTD="Status:" class="status" data-settingsName="statusSettings">
         </div>
         <div class="infoPen">
             <div class="timeDate">

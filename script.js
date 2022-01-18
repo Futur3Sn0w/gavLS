@@ -4,6 +4,8 @@ let tb = document.getElementById('testBtn');
 
 let cont = document.getElementById('container');
 let swiper = document.getElementById('swiper');
+let cornerBack = document.getElementById('ovCornerBack');
+let cornerFore = document.getElementById('ovCornerFore');
 
 let sett = document.getElementById('settingsPanel');
 let settBack = document.getElementById('spBack');
@@ -53,7 +55,9 @@ function finishBtn(obj) {
     contentA.innerHTML = statusTB.value;
 
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
-    swiper.style.background = "linear-gradient(90deg, transparent, " + localStorage.getItem('colorSwiperLS') + ")";
+    cornerBack.style.backgroundColor = localStorage.getItem('colorSwiperLS');
+    cornerFore.style.backgroundColor = localStorage.getItem('colorMainLS');
+    swiper.style.background = localStorage.getItem('colorSwiperLS');
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
 
     localStorage.setItem('titleLS', overviewTB.value);
@@ -80,6 +84,7 @@ function finishBtn(obj) {
         let currentTime2 = hour2 + ":" + min2 + am_pm2;
       
         mainTitle.setAttribute("data-lastUpdate", "Last updated: " + currentTime2);
+        localStorage.setItem('timeLU', "Last updated: " + currentTime2);
     }
     showTime2();
 
@@ -94,12 +99,15 @@ window.onload = function () {
     mainTitle.innerHTML = localStorage.getItem('titleLS');
     contentA.innerHTML = localStorage.getItem('statusLS');
 
+    cornerBack.style.backgroundColor = localStorage.getItem('colorSwiperLS');
+    cornerFore.style.backgroundColor = localStorage.getItem('colorMainLS');
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
-    swiper.style.background = "linear-gradient(90deg, transparent, " + localStorage.getItem('colorSwiperLS') + ")";
+    swiper.style.background = localStorage.getItem('colorSwiperLS');
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
 
     overviewTB.value = localStorage.getItem('titleLS');
     statusTB.value = localStorage.getItem('statusLS');
+    mainTitle.setAttribute('data-lastUpdate',  localStorage.getItem('timeLU'));
 
     setChecks();
 }
@@ -114,7 +122,7 @@ function globalColor(obj2) {
         localStorage.setItem("textColor", "black");
     } else if (obj2.getAttribute('data-colorName') === "yellow") {
         localStorage.setItem("textColor", "black");
-    } else if (obj2.getAttribute('data-colorName') === "green") {
+    } else if (obj2.getAttribute('data-colorName') === "TEMP") {
         localStorage.setItem("textColor", "black");
     } else {
         localStorage.setItem("textColor", "white");

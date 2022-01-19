@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <ul class="circles">
+    <!-- <ul class="circles">
         <li></li>
         <li></li>
         <li></li>
@@ -34,7 +34,7 @@
         <li></li>
         <li></li>
         <li></li>
-    </ul>
+    </ul> -->
 
     <div class="contentA" id="contentA" style="display: none;">Loading...</div>
     <div class="contentB" id="contentB" style="display: none;">
@@ -46,23 +46,23 @@
         </ul>
     </div>
 
+    <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">
+        😴
+    </div>
+    <div class="ovEmShadow" id="ovEmShadow"></div>
+    <div class="overview" id="swiper" data-ovTextureFilter="brightness(20%)">
+        <div id="mainTitle" class="ovText" data-settingsName="ovTextSettings"></div>
+        <div class="ovCorner" id="ovCornerBack"></div>
+    </div>
+
     <div class="container" id="container">
         <!-- <div class="hello">hello!</div> -->
-        <div class="ovCorner" id="ovCornerBack">
-            <div class="ovCornerFore" id="ovCornerFore"></div>
-        </div>
-        <div class="overview" id="swiper">
-            <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">😴</div>
-            <div id="mainTitle" class="ovText" data-settingsName="ovTextSettings"></div>
-        </div>
-        <div id="mainStatus" data-statOrTD="Status:" class="status" data-settingsName="statusSettings">
+        <div class="time" id="time"></div>
+        <div id="mainStatus" onclick="showSettings()" data-statOrTD="Status:" class="status" data-settingsName="statusSettings">
         </div>
         <div class="infoPen">
-            <div class="timeDate">
-                <div class="time" id="time"></div>
-                <div class="date" id="date"></div>
-            </div>
             <div class="weather" id="weather"></div>
+            <div class="date" id="date"></div>
         </div>
     </div>
 

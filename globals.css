@@ -19,6 +19,16 @@
     --purple: rgb(165, 69, 149);
 
     --textClr: black;
+
+    --ovTextureFilter: brightness(20%);
+    --ovCornerFilter: var(--purpleFilter);
+
+    --redFilter: invert(35%) sepia(83%) saturate(867%) hue-rotate(320deg) brightness(87%) contrast(84%);
+    --orangeFilter: invert(66%) sepia(20%) saturate(1272%) hue-rotate(0deg) brightness(94%) contrast(92%);
+    --yellowFilter: invert(74%) sepia(96%) saturate(378%) hue-rotate(8deg) brightness(116%) contrast(75%);
+    --greenFilter: invert(79%) sepia(14%) saturate(4790%) hue-rotate(64deg) brightness(86%) contrast(74%);
+    --blueFilter: invert(45%) sepia(27%) saturate(1978%) hue-rotate(209deg) brightness(103%) contrast(107%);
+    --purpleFilter: invert(38%) sepia(13%) saturate(2724%) hue-rotate(259deg) brightness(93%) contrast(93%);
 }
 
 *{
@@ -28,4 +38,9 @@
 
 html{
     background-color: black;
+}
+
+@font-face {
+    font-family: SEGEMJ;
+    src: url(seguiemj.ttf);
 }

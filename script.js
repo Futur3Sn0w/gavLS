@@ -29,9 +29,13 @@ let body = document.body;
 function showSettings(obj) {
     if (cont.classList.contains('unfocused')){
     cont.classList.remove('unfocused');
+    swiper.classList.remove('unfocused');
+    mainEmoji.classList.remove('unfocused');
     sett.style.display = "none";
     settBack.style.display = "none";
     } else {
+        swiper.classList.add('unfocused');
+        mainEmoji.classList.add('unfocused');
         cont.classList.add('unfocused');
         sett.style.display = "flex";
         settBack.style.display = "flex";
@@ -55,10 +59,10 @@ function finishBtn(obj) {
     contentA.innerHTML = statusTB.value;
 
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
-    cornerBack.style.backgroundColor = localStorage.getItem('colorSwiperLS');
-    cornerFore.style.backgroundColor = localStorage.getItem('colorMainLS');
     swiper.style.background = localStorage.getItem('colorSwiperLS');
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
+    document.documentElement.style.setProperty('--ovTextureFilter', localStorage.getItem("filtBright"));
+    document.documentElement.style.setProperty('--ovCornerFilter', localStorage.getItem("filtCorn"));
 
     localStorage.setItem('titleLS', overviewTB.value);
     localStorage.setItem('statusLS', statusTB.value);
@@ -99,11 +103,11 @@ window.onload = function () {
     mainTitle.innerHTML = localStorage.getItem('titleLS');
     contentA.innerHTML = localStorage.getItem('statusLS');
 
-    cornerBack.style.backgroundColor = localStorage.getItem('colorSwiperLS');
-    cornerFore.style.backgroundColor = localStorage.getItem('colorMainLS');
     cont.style.backgroundColor = localStorage.getItem('colorMainLS');
     swiper.style.background = localStorage.getItem('colorSwiperLS');
     document.documentElement.style.setProperty('--textClr', localStorage.getItem("textColor"));
+    document.documentElement.style.setProperty('--ovTextureFilter', localStorage.getItem("filtBright"));
+    document.documentElement.style.setProperty('--ovCornerFilter', localStorage.getItem("filtCorn"));
 
     overviewTB.value = localStorage.getItem('titleLS');
     statusTB.value = localStorage.getItem('statusLS');
@@ -115,17 +119,33 @@ window.onload = function () {
 // Backend for colour setting(s)
 
 function globalColor(obj2) {
-    localStorage.setItem("colorMainLS", "var(--" + obj2.getAttribute('data-colorName') + ")")
-    localStorage.setItem("colorSwiperLS", obj2.getAttribute('data-colorName'))
+    localStorage.setItem("colorMainLS", "var(--" + obj2.getAttribute('data-colorName') + ")");
+    localStorage.setItem("colorSwiperLS", obj2.getAttribute('data-colorName'));
 
     if (obj2.getAttribute('data-colorName') === "orange"){
         localStorage.setItem("textColor", "black");
+        localStorage.setItem("filtBright", "brightness(55%)");
+        localStorage.setItem("filtCorn", "var(--orangeFilter)");
     } else if (obj2.getAttribute('data-colorName') === "yellow") {
         localStorage.setItem("textColor", "black");
-    } else if (obj2.getAttribute('data-colorName') === "TEMP") {
+        localStorage.setItem("filtBright", "brightness(65%)");
+        localStorage.setItem("filtCorn", "var(--yellowFilter)");
+    } else if (obj2.getAttribute('data-colorName') === "green") {
         localStorage.setItem("textColor", "black");
-    } else {
+        localStorage.setItem("filtBright", "brightness(50%)");
+        localStorage.setItem("filtCorn", "var(--greenFilter)");
+    } else if (obj2.getAttribute('data-colorName') === "blue") {
         localStorage.setItem("textColor", "white");
+        localStorage.setItem("filtBright", "brightness(60%)");
+        localStorage.setItem("filtCorn", "var(--blueFilter)");
+    } else if (obj2.getAttribute('data-colorName') === "purple") {
+        localStorage.setItem("textColor", "white");
+        localStorage.setItem("filtBright", "brightness(10%)");
+        localStorage.setItem("filtCorn", "var(--purpleFilter)");
+    } else if (obj2.getAttribute('data-colorName') === "red") {
+        localStorage.setItem("textColor", "white");
+        localStorage.setItem("filtBright", "brightness(70%)");
+        localStorage.setItem("filtCorn", "var(--redFilter)");
     }
 }
 

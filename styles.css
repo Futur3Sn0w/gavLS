@@ -17,11 +17,17 @@ body{
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 200px);
     overflow: hidden;
 
     background-color: var(--purple);
     transition: transform .3s, opacity .2s, filter .2s;
+    border-radius: 50px 0 0 0;
+
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
 
     display: flex;
     flex-direction: column;
@@ -164,40 +170,53 @@ body{
 
 .overview{
     width: 100vw;
-    height: 200px;
+    height: 250px;
 
-    position: relative;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
     /* overflow: hidden; */
 
     display: flex;
     justify-content: center;
 
-    background: linear-gradient(90deg, transparent, purple);
+    background: purple;
 
     /* box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.397); */
 
-    border-radius: 0 0 50px 0;
+    /* border-radius: 0 0 100px 0; */
 }
 
-.ovCorner,
-.ovCornerFore{
-    content: "";
+.overview::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    position: absolute;
+    /* background-color: black; */
+
+    background-image: url(Bitmap634.png);
+    background-size: cover;
+    background-position: top center;
+
+    mix-blend-mode: luminosity;
+    filter: var(--ovTextureFilter);
+}
+
+.ovCorner{
     width: 50px;
     height: 50px;
 
     position: absolute;
-    z-index: 1;
-    top: 200px;
-    left: 0;
+    z-index: 0.5;
+    top: 150px;
+    right: 0;
 
-    background-color: green;
-}
-
-#ovCornerFore{
-    border-radius: 50px 0 0 0;
-    background-color: attr(data-foreClr);
-    top: 0;
-    /* box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.397); */
+    background-image: url(corner_mask.png);
+    filter: var(--ovCornerFilter);
 }
 
 .ovEmoji{
@@ -207,34 +226,33 @@ body{
 
     position: absolute;
     z-index: 1;
-    top: -20px;
-    left: 10px;
+    top: 35px;
+    left: -20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     transform: rotateY(10deg) rotateX(-10deg) rotateZ(-10deg);
+    font-family: SEGEMJ;
 
     /* text-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); */
 }
 
-.ovEmoji::before{
-    content: "";
-
+.ovEmShadow{
     width: 130px;
-    height: 130px;
+    height: 100px;
 
     position: absolute;
-    z-index: -1;
-    bottom: 13px;
-    left: 12px;
+    z-index: 0;
+    top: 165px;
+    left: 30px;
 
-    transform: rotateX(70deg) rotateY(10deg);
+    transform: rotateX(-10deg) rotateZ(-20deg) skewX(50deg);
 
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.6) 40%);
-    border-radius: 50%;
-    filter: blur(10px);
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .7));
+    border-radius: 50px;
+    filter: blur(5px);
 }
 
 .ovEmojji::after {
@@ -254,16 +272,17 @@ body{
 .ovText{
     margin-top: 0;
     padding-left: 12px;
-    font-size: 120px;
+    font-size: 140px;
     font-weight: bolder;
     width: 100%;
 
     text-align: left;
 
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 220px;
+    top: 15%;
+    z-index: 1;
+    /* transform: translateY(-50%); */
+    left: 240px;
 
     color: var(--textClr);
 }
@@ -275,8 +294,8 @@ body{
     opacity: .5;
 
     position: absolute;
-    top: -15px;
-    left: 15px;
+    top: -25px;
+    left: -20px;
 
     pointer-events: none;
     user-select: none;
@@ -289,8 +308,8 @@ body{
     opacity: .7;
 
     position: absolute;
-    bottom: -15px;
-    right: 250px;
+    bottom: 25px;
+    right: 260px;
 
     pointer-events: none;
     user-select: none;
@@ -313,6 +332,8 @@ body{
 
     margin: auto auto;
     padding: 50px 30px 20px 25px;
+
+    transform: translateY(-100px);
 
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
@@ -366,45 +387,53 @@ body{
 
 /* InfoPen Area */
 
-.timeDate{
+.infoPen{
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 5px;
-}
 
-.infoPen{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    align-items: center;
-    gap: 10px;
-
-    width: 100vw;
+    width: fit-content;
     height: fit-content;
-    padding: 15px;
+    padding: 15px 10px 10px 20px;
 
-    background: linear-gradient(transparent, rgba(255, 255, 255, 0.4));
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 25px 0 0 0;
     color: var(--textClr);
-    filter: invert(100%);
+    /* filter: invert(100%); */
 }
 
 .time{
-    font-size: 70px;
-    font-weight: bold;
-    filter: invert(100%);
+    font-size: 60vh;
+    font-weight: 500;
+
+    position: absolute;
+    z-index: 0;
+    bottom: -15%;
+    right: -15%;
+
+    opacity: 0;
+
+    user-select: none;
+
+    transform: scaleX(80%);
+    /* filter: invert(100%); */
 }
 
 .date{
-    font-size: 55px;
-    filter: invert(100%);
+    font-size: 50px;
+    /* filter: invert(100%); */
 }
 
 .weather{
-    font-size: 60px;
+    font-size: 65px;
     font-weight: bold;
 
-    text-align: right;
-    filter: invert(100%);
+    /* filter: invert(100%); */
 }
 
 /*  */
@@ -416,7 +445,7 @@ body{
 }
 
 .unfocused{
-    transform: scale(0.95);
+    /* transform: scale(0.95); */
     opacity: .6;
     border-radius: 15px 15px 0 0;
     filter: blur(5px);

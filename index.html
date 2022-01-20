@@ -36,19 +36,7 @@
         <li></li>
     </ul> -->
 
-    <div class="contentA" id="contentA" style="display: none;">Loading...</div>
-    <div class="contentB" id="contentB" style="display: none;">
-        <ul class="toDoList" data-showMessage="">
-            <li style="display: none;" id="tdl1"></li>
-            <li style="display: none;" id="tdl2"></li>
-            <li style="display: none;" id="tdl3"></li>
-            <li style="display: none;" id="tdl4"></li>
-        </ul>
-    </div>
-
-    <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">
-        😴
-    </div>
+    <div id="mainEmoji" class="ovEmoji changable" data-settingsName="ovEmojiSettings" onclick="showSettings(this)">😴</div>
     <div class="ovEmShadow" id="ovEmShadow"></div>
     <div class="overview" id="swiper" data-ovTextureFilter="brightness(20%)">
         <div id="mainTitle" class="ovText" data-settingsName="ovTextSettings"></div>
@@ -58,7 +46,16 @@
     <div class="container" id="container">
         <!-- <div class="hello">hello!</div> -->
         <div class="time" id="time"></div>
-        <div id="mainStatus" onclick="showSettings()" data-statOrTD="Status:" class="status" data-settingsName="statusSettings">
+        <div id="mainStatus" onclick="showSettings()" data-statOrTD="" class="status" data-settingsName="statusSettings">
+            <div class="contentA" id="contentA">Loading...</div>
+            <div class="contentB" id="contentB">
+                <ul class="toDoList" data-showMessage="">
+                    <li style="display: none;" id="tdl1"></li>
+                    <li style="display: none;" id="tdl2"></li>
+                    <li style="display: none;" id="tdl3"></li>
+                    <li style="display: none;" id="tdl4"></li>
+                </ul>
+            </div>
         </div>
         <div class="infoPen">
             <div class="weather" id="weather"></div>
@@ -67,7 +64,7 @@
     </div>
 
     <div class="settingsPanel" id="settingsPanel">
-        <div class="finishBtn" onclick="finishBtn(this)">X</div>
+        <div class="finishBtn" onclick="finishBtn(this)">✓</div>
         <div class="settingsContent ovEmojiSettings">
             <div class="emOpts">
             <input type="radio" onclick="emojiPickerFn(this)" name="emoji" data-emName="😴" id="emojiRadio" class="emojiRadio">

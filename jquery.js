@@ -1,13 +1,16 @@
 var toggle = false;
-mainStatus.innerHTML = contentA.innerHTML;
+contentB.style.opacity = "0";
+// mainStatus.innerHTML = contentB.innerHTML;
 
 setInterval(function() {
     if (toggle == false) {
-        mainStatus.innerHTML = contentA.innerHTML;
-        mainStatus.setAttribute("data-statOrTD", "Status:");
+        contentA.style.opacity = "0";
+        contentB.style.opacity = "1";
+        mainStatus.setAttribute("data-statOrTD", "To-Do:");
     } else if (toggle == true){
-        mainStatus.innerHTML = contentB.innerHTML;
-        mainStatus.setAttribute("data-statOrTD", "To-do:");
+        contentA.style.opacity = "1";
+        contentB.style.opacity = "0";
+        mainStatus.setAttribute("data-statOrTD", "Status:");
     }
     toggle = !toggle;
 }, 5000);

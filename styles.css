@@ -41,14 +41,37 @@ body{
     width: 500px;
     height: fit-content;
 
-    background-color: white;
-    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 15px 15px;
 
     display: none;
     flex-direction: column;
 
-    position: absolute;
     z-index: 1000;
+}
+
+.settingsPanel::before{
+    content: 'Settings';
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+
+    position: absolute;
+    top: -40px;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 130%;
+    font-weight: 500;
+
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(20px);
+    border-radius: 15px 15px 0 0;
 }
 
 .spBack{
@@ -67,28 +90,34 @@ body{
 .settingsContent{
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: fit-content;
     align-items: center;
     justify-content: center;
 }
 
 .settingsContent:not(:last-of-type){
     border-bottom: 3px solid rgba(0, 0, 0, 0.308);
+    padding: 15px 0;
 }
 
 .finishBtn{
-    width: fit-content;
-    height: fit-content;
+    width: 34px;
+    height: 34px;
 
     position: absolute;
-    bottom: -50px;
+    top: -37px;
+    right: 3px;
 
     font-size: 20px;
     font-weight: bold;
 
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 7px;
+    background-color: var(--red);
+    color: white;
+    border-radius: 7px 14px 7px 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     cursor: pointer;
     transition: opacity .2s, transform .2s;
@@ -120,19 +149,19 @@ body{
 .emOpts{
     display: flex;
     gap: 40px;
-    padding-top: 55px;
+    padding-top: 50px;
 }
 
 .emojiRadio{
     position: relative;
-    /* font-family: "Apple Color Emoji"; */
+    font-family: SEGEMJ;
 }
 
 .emojiRadio::before{
     content: attr(data-emName);
     
     position: absolute;
-    top: -60px;
+    top: -50px;
     left: 50%;
     transform: translateX(-49%);
 
@@ -146,18 +175,19 @@ body{
 .colOpts{
     display: flex;
     gap: 40px;
-    padding-top: 55px;
+    padding-top: 50px;
 }
 
 #colorRadio{
     position: relative;
+    font-family: SEGEMJ;
 }
 
 #colorRadio::before{
     content: attr(data-color);
     
     position: absolute;
-    top: -60px;
+    top: -50px;
     left: 50%;
     transform: translateX(-49%);
 

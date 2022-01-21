@@ -13,4 +13,4 @@ setInterval(function() {
         mainStatus.setAttribute("data-statOrTD", "Status:");
     }
     toggle = !toggle;
-}, 5000);
+}, 10000);

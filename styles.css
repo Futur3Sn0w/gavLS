@@ -30,9 +30,8 @@ body{
     left: 0;
 
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Settings */
@@ -406,19 +405,8 @@ body{
 /* Status Box */
 
 .status{
-    flex-shrink: none;
-    width: 100vw;
-    /* max-width: 75vw; */
-    height: fit-content;
-    max-height: 45vh;
-
-    /* overflow: clip; */
-
     font-size: 70px;
     color: var(--textClr);
-
-    /* margin: auto auto; */
-    padding: 10px 0;
 
     position: absolute;
     top: 50%;
@@ -426,29 +414,37 @@ body{
 
     transform: translate(-50%, -50%);
 
-    background-color: rgba(255, 255, 255, 0.25);
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.status::before{
-    content: attr(data-statOrTD);
+.statusContent{
+    width: max-content;
+    max-width: 75vw;
+    height: max-content;
+
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     transform: translateY(-45px);
-    font-weight: bold;
-    font-size: 25px;
-}
-
-#contentA, 
-#contentB{
-    width: fit-content;
-    height: fit-content;
-
-    position: absolute;
 
     transition: opacity .2s;
+
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 40px 15px 15px 15px;
+    border-radius: 1rem;
+}
+
+.statusContent::before{
+    content: attr(data-statOrTD);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .toDoList{
